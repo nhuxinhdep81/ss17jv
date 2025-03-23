@@ -7,14 +7,11 @@ import java.util.Set;
 public class ContactManager {
     private Set<Contact> contacts;
 
-    // Constructor
     public ContactManager() {
         this.contacts = new HashSet<>();
     }
 
-    // Phương thức thêm liên lạc
     public boolean addContact(Contact contact) {
-        // Kiểm tra xem số điện thoại đã tồn tại chưa
         for (Contact c : contacts) {
             if (c.getPhoneNumber().equals(contact.getPhoneNumber())) {
                 System.out.println("Lỗi: Số điện thoại " + contact.getPhoneNumber() + " đã tồn tại!");
@@ -22,17 +19,13 @@ public class ContactManager {
             }
         }
 
-        // Thêm liên lạc vào Set
         contacts.add(contact);
         System.out.println("Đã thêm liên lạc thành công: " + contact.getName());
         return true;
     }
 
-    // Phương thức xóa liên lạc theo số điện thoại
     public boolean removeContact(String phoneNumber) {
         Contact contactToRemove = null;
-
-        // Tìm liên lạc có số điện thoại cần xóa
         for (Contact c : contacts) {
             if (c.getPhoneNumber().equals(phoneNumber)) {
                 contactToRemove = c;
